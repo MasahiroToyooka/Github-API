@@ -40,13 +40,6 @@ class DetailViewController: UIViewController {
         setupProgressView()
         setupEstimatedProgressObserver()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // webviewの横スワイプと競合しないようにするため
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-    }
 
     deinit {
         print("deinit")
@@ -57,7 +50,6 @@ class DetailViewController: UIViewController {
     private func setupWebView() {
         wkWebView.uiDelegate = self
         wkWebView.navigationDelegate = self
-        wkWebView.allowsBackForwardNavigationGestures = true
         self.wkWebView.scrollView.bounces = true
         let refreshControl = UIRefreshControl()
         self.wkWebView.scrollView.refreshControl = refreshControl
