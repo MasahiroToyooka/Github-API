@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
 
     
     @IBOutlet weak var wkWebView: WKWebView!
+    @IBOutlet weak var goBackButton: UIButton!
+    @IBOutlet weak var goFowardButton: UIButton!
     
     var user: User?
     
@@ -37,6 +39,13 @@ class DetailViewController: UIViewController {
         load()
         setupProgressView()
         setupEstimatedProgressObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // webviewの横スワイプと競合しないようにするため
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     deinit {
@@ -107,6 +116,23 @@ class DetailViewController: UIViewController {
         let html = "<html><head><title>エラー</title><meta charset='UTF-8'></head><body><h1>Webページを表示できません</h1></body></html>"
         wkWebView.loadHTMLString(html, baseURL: nil)
     }
+    
+    private func changeButtonState() {
+        goFowardButton.tintColor = wkWebView.canGoForward ? .black : .lightGray
+        goBackButton.tintColor = wkWebView.canGoBack ? .black : .lightGray
+    }
+    
+    @IBAction func goBackButtonTapped(_ sender: UIButton) {
+        if wkWebView.canGoBack {
+            wkWebView.goBack()
+        }
+    }
+    
+    @IBAction func goFowardButtonTapped(_ sender: UIButton) {
+        if wkWebView.canGoForward {
+            wkWebView.goForward()
+        }
+    }
 }
 
 // MARK: - WKNavigationDelegate
@@ -152,6 +178,7 @@ extension DetailViewController: WKNavigationDelegate {
                        completion: { isFinished in
                            self.progressView.isHidden = isFinished
         })
+        changeButtonState()
         print("読み込み完了")
     }
     
@@ -162,6 +189,7 @@ extension DetailViewController: WKNavigationDelegate {
         if ((withError as NSError)).code != NSURLErrorCancelled {
             showFailMessage()
         }
+        changeButtonState()
         self.progressView.isHidden = true
     }
     
@@ -172,6 +200,7 @@ extension DetailViewController: WKNavigationDelegate {
         if ((withError as NSError)).code != NSURLErrorCancelled {
             showFailMessage()
         }
+        changeButtonState()
         self.progressView.isHidden = true
     }
 }

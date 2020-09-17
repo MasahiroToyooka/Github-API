@@ -59,24 +59,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygH-m1-Mar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRC-Px-JXZ">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jk-zu-Zfs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.5"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.69999999999999996" id="XeK-wT-PBA"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUY-p7-hwr">
+                                        <rect key="frame" x="284.5" y="0.5" width="49.5" height="49.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sUY-p7-hwr" secondAttribute="height" multiplier="1:1" id="YgO-i9-HKG"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="chevron.right" catalog="system"/>
+                                        <connections>
+                                            <action selector="goFowardButtonTapped:" destination="cjg-BX-z7M" eventType="touchUpInside" id="GwI-c0-R3v"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnn-wC-awg">
+                                        <rect key="frame" x="80" y="0.5" width="49.5" height="49.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Mnn-wC-awg" secondAttribute="height" multiplier="1:1" id="Lgb-wV-g2P"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="chevron.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="goBackButtonTapped:" destination="cjg-BX-z7M" eventType="touchUpInside" id="D1u-gv-jMI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="sUY-p7-hwr" secondAttribute="bottom" id="8ct-7L-CF4"/>
+                                    <constraint firstItem="7jk-zu-Zfs" firstAttribute="top" secondItem="rRC-Px-JXZ" secondAttribute="top" id="L3C-qU-54v"/>
+                                    <constraint firstItem="7jk-zu-Zfs" firstAttribute="leading" secondItem="rRC-Px-JXZ" secondAttribute="leading" id="NYV-k3-h7w"/>
+                                    <constraint firstItem="Mnn-wC-awg" firstAttribute="leading" secondItem="rRC-Px-JXZ" secondAttribute="leading" constant="80" id="TBP-nr-PpO"/>
+                                    <constraint firstAttribute="height" constant="50" id="UQ6-Rz-38b"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mnn-wC-awg" secondAttribute="bottom" id="Zgj-Fp-uca"/>
+                                    <constraint firstAttribute="trailing" secondItem="sUY-p7-hwr" secondAttribute="trailing" constant="80" id="fZP-nV-8gX"/>
+                                    <constraint firstAttribute="trailing" secondItem="7jk-zu-Zfs" secondAttribute="trailing" id="fcd-3B-VW3"/>
+                                    <constraint firstItem="sUY-p7-hwr" firstAttribute="top" secondItem="7jk-zu-Zfs" secondAttribute="bottom" id="mhA-Uw-zbr"/>
+                                    <constraint firstItem="Mnn-wC-awg" firstAttribute="top" secondItem="7jk-zu-Zfs" secondAttribute="bottom" id="xZm-ba-WGz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ygH-m1-Mar" firstAttribute="top" secondItem="Cyz-eh-k6C" secondAttribute="top" id="1ZD-uz-uzQ"/>
-                            <constraint firstItem="Cyz-eh-k6C" firstAttribute="bottom" secondItem="ygH-m1-Mar" secondAttribute="bottom" id="EfF-Vd-KMc"/>
+                            <constraint firstItem="rRC-Px-JXZ" firstAttribute="bottom" secondItem="Cyz-eh-k6C" secondAttribute="bottom" id="8HY-a1-Ps1"/>
                             <constraint firstItem="Cyz-eh-k6C" firstAttribute="trailing" secondItem="ygH-m1-Mar" secondAttribute="trailing" id="RX6-Iy-BR3"/>
                             <constraint firstItem="ygH-m1-Mar" firstAttribute="leading" secondItem="Cyz-eh-k6C" secondAttribute="leading" id="al0-TE-D1K"/>
+                            <constraint firstItem="rRC-Px-JXZ" firstAttribute="top" secondItem="ygH-m1-Mar" secondAttribute="bottom" id="dXn-I1-bC8"/>
+                            <constraint firstItem="rRC-Px-JXZ" firstAttribute="leading" secondItem="Cyz-eh-k6C" secondAttribute="leading" id="ki4-v7-Oj6"/>
+                            <constraint firstItem="Cyz-eh-k6C" firstAttribute="trailing" secondItem="rRC-Px-JXZ" secondAttribute="trailing" id="s70-ST-9WZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cyz-eh-k6C"/>
                     </view>
                     <connections>
+                        <outlet property="goBackButton" destination="Mnn-wC-awg" id="31F-wR-vqG"/>
+                        <outlet property="goFowardButton" destination="sUY-p7-hwr" id="BcG-gN-Dli"/>
                         <outlet property="wkWebView" destination="ygH-m1-Mar" id="Fun-iw-qXU"/>
                     </connections>
                 </viewController>
@@ -103,4 +155,8 @@
             <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+    </resources>
 </document>
