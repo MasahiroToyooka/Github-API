@@ -12,7 +12,7 @@ import DZNEmptyDataSet
 
 protocol HomeViewInterface: class {
     func reloadTableView()
-//    func toDetailVC(for user: )
+    func toDetailVC(for user: User)
 }
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
@@ -63,6 +63,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.select(at: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.searchResults.count
     }
@@ -84,6 +89,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension HomeViewController: HomeViewInterface {
+    func toDetailVC(for user: User) {
+        let vc = DetailViewController.instantiate(user: user)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func reloadTableView() {
         DispatchQueue.main.sync {

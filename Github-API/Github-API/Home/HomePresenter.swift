@@ -26,6 +26,7 @@ final class HomePresenter {
     }
     
     func select(at index: Int) {
+        view.toDetailVC(for: searchResults[index])
     }
 }
 
