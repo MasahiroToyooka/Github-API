@@ -13,6 +13,7 @@ final class HomePresenter {
     private weak var view: HomeViewInterface!
     private var model: HomeModel!
     
+    var searchResults: [User] { return model.users }
     
     init (_ view: HomeViewInterface) {
         self.view = view
@@ -21,6 +22,7 @@ final class HomePresenter {
     }
     
     func searchText(_ text: String) {
+        model.fetchUserData(text)
     }
     
     func select(at index: Int) {
