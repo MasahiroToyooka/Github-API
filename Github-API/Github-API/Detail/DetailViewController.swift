@@ -49,6 +49,15 @@ class DetailViewController: UIViewController {
         wkWebView.uiDelegate = self
         wkWebView.navigationDelegate = self
         wkWebView.allowsBackForwardNavigationGestures = true
+        self.wkWebView.scrollView.bounces = true
+        let refreshControl = UIRefreshControl()
+        self.wkWebView.scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(DetailViewController.refreshWebView(sender:)), for: .valueChanged)
+    }
+    
+    @objc func refreshWebView(sender: UIRefreshControl) {
+        reload()
+        sender.endRefreshing()
     }
     
     private func setupProgressView() {
@@ -82,6 +91,18 @@ class DetailViewController: UIViewController {
         wkWebView.load(request)
     }
     
+    private func reload() {
+        guard let urlString = user?.htmlUrl, let url = URL(string: urlString) else {
+            showFailMessage()
+            return
+        }
+        if wkWebView.url != nil {
+            wkWebView.reload()
+        } else {
+            wkWebView.load(URLRequest(url: url))
+        }
+    }
+    
     private func showFailMessage() {
         let html = "<html><head><title>エラー</title><meta charset='UTF-8'></head><body><h1>Webページを表示できません</h1></body></html>"
         wkWebView.loadHTMLString(html, baseURL: nil)
@@ -98,6 +119,15 @@ extension DetailViewController: WKNavigationDelegate {
         print("読み込み設定（リクエスト前）")
         guard let url = navigationAction.request.url else { return }
         print("開くurl: ", url)
+        let app = UIApplication.shared
+        
+        if URLSchemeType(scheme: url.scheme) != nil {
+            if app.canOpenURL(url) {
+                app.open(url, options: [:], completionHandler: nil)
+                decisionHandler(.cancel)
+                return
+            }
+        }
         decisionHandler(.allow)
     }
     

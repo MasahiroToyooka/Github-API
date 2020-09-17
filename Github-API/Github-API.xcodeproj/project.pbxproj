@@ -27,6 +27,7 @@
 		C1DDFE742513A87900E44DA2 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE732513A87900E44DA2 /* AttributedText.swift */; };
 		C1DDFE772513AA3D00E44DA2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE762513AA3D00E44DA2 /* DetailViewController.swift */; };
 		C1DDFE792513AACA00E44DA2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDFE782513AACA00E44DA2 /* WebKit.framework */; };
+		C1DDFE7B2513C22B00E44DA2 /* URLSchemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE7A2513C22B00E44DA2 /* URLSchemeType.swift */; };
 		ECBF5B9361B36E28A86A336B /* Pods_Github_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1698387A8F260E65B3196965 /* Pods_Github_API.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		C1DDFE732513A87900E44DA2 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		C1DDFE762513AA3D00E44DA2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C1DDFE782513AACA00E44DA2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C1DDFE7A2513C22B00E44DA2 /* URLSchemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeType.swift; sourceTree = "<group>"; };
 		FC58CF09A327F9559E0EE373 /* Pods-Github-API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-API.debug.xcconfig"; path = "Target Support Files/Pods-Github-API/Pods-Github-API.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				C1DDFE762513AA3D00E44DA2 /* DetailViewController.swift */,
+				C1DDFE7A2513C22B00E44DA2 /* URLSchemeType.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				C14362BA2513943200A4B358 /* SceneDelegate.swift in Sources */,
 				C1DDFE692513A23E00E44DA2 /* HomePresenter.swift in Sources */,
 				C1DDFE772513AA3D00E44DA2 /* DetailViewController.swift in Sources */,
+				C1DDFE7B2513C22B00E44DA2 /* URLSchemeType.swift in Sources */,
 				C1294D912513971200BEBDE0 /* R.generated.swift in Sources */,
 				C1DDFE712513A68A00E44DA2 /* UserItem.swift in Sources */,
 			);
