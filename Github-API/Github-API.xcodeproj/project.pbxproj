@@ -28,6 +28,10 @@
 		C1DDFE772513AA3D00E44DA2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE762513AA3D00E44DA2 /* DetailViewController.swift */; };
 		C1DDFE792513AACA00E44DA2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DDFE782513AACA00E44DA2 /* WebKit.framework */; };
 		C1DDFE7B2513C22B00E44DA2 /* URLSchemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE7A2513C22B00E44DA2 /* URLSchemeType.swift */; };
+		C1DDFE802513F82800E44DA2 /* PageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE7F2513F82800E44DA2 /* PageProtocol.swift */; };
+		C1DDFE812513F84800E44DA2 /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE7C2513F51900E44DA2 /* XCUIElement+Ex.swift */; };
+		C1DDFE832513F94E00E44DA2 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE822513F94E00E44DA2 /* HomePage.swift */; };
+		C1DDFE852514028300E44DA2 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE842514028300E44DA2 /* DetailPage.swift */; };
 		ECBF5B9361B36E28A86A336B /* Pods_Github_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1698387A8F260E65B3196965 /* Pods_Github_API.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,10 @@
 		C1DDFE762513AA3D00E44DA2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C1DDFE782513AACA00E44DA2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C1DDFE7A2513C22B00E44DA2 /* URLSchemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeType.swift; sourceTree = "<group>"; };
+		C1DDFE7C2513F51900E44DA2 /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
+		C1DDFE7F2513F82800E44DA2 /* PageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProtocol.swift; sourceTree = "<group>"; };
+		C1DDFE822513F94E00E44DA2 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		C1DDFE842514028300E44DA2 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
 		FC58CF09A327F9559E0EE373 /* Pods-Github-API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-API.debug.xcconfig"; path = "Target Support Files/Pods-Github-API/Pods-Github-API.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,8 +187,11 @@
 		C14362D82513943400A4B358 /* Github-APIUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C14362D92513943400A4B358 /* Github_APIUITests.swift */,
+				C1DDFE7E2513F80D00E44DA2 /* Pages */,
 				C14362DB2513943400A4B358 /* Info.plist */,
+				C14362D92513943400A4B358 /* Github_APIUITests.swift */,
+				C1DDFE7C2513F51900E44DA2 /* XCUIElement+Ex.swift */,
+				C1DDFE7F2513F82800E44DA2 /* PageProtocol.swift */,
 			);
 			path = "Github-APIUITests";
 			sourceTree = "<group>";
@@ -213,6 +224,15 @@
 				C1DDFE7A2513C22B00E44DA2 /* URLSchemeType.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		C1DDFE7E2513F80D00E44DA2 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				C1DDFE822513F94E00E44DA2 /* HomePage.swift */,
+				C1DDFE842514028300E44DA2 /* DetailPage.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		DA07B6E1FC6994773E7D4FBB /* Frameworks */ = {
@@ -552,7 +572,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1DDFE802513F82800E44DA2 /* PageProtocol.swift in Sources */,
+				C1DDFE812513F84800E44DA2 /* XCUIElement+Ex.swift in Sources */,
 				C14362DA2513943400A4B358 /* Github_APIUITests.swift in Sources */,
+				C1DDFE852514028300E44DA2 /* DetailPage.swift in Sources */,
+				C1DDFE832513F94E00E44DA2 /* HomePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
