@@ -15,6 +15,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var wkWebView: WKWebView!
     
     var user: User?
+    
+    let progressView = UIProgressView(progressViewStyle: .default)
+    private var estimatedProgressObserver: NSKeyValueObservation?
+
 
     static func instantiate(user: User?) -> DetailViewController {
         let vc = R.storyboard.main.detail()!
@@ -31,11 +35,41 @@ class DetailViewController: UIViewController {
         
         setupWebView()
         load()
+        setupProgressView()
+        setupEstimatedProgressObserver()
+    }
+
+    deinit {
+        print("deinit")
+        estimatedProgressObserver = nil
+        progressView.removeFromSuperview()
     }
     
     private func setupWebView() {
-
+        wkWebView.navigationDelegate = self
         wkWebView.allowsBackForwardNavigationGestures = true
+    }
+    
+    private func setupProgressView() {
+        guard let navigationBar = navigationController?.navigationBar else { return }
+
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        navigationBar.addSubview(progressView)
+        progressView.isHidden = true
+
+        NSLayoutConstraint.activate([
+            progressView.leadingAnchor.constraint(equalTo: navigationBar.leadingAnchor),
+            progressView.trailingAnchor.constraint(equalTo: navigationBar.trailingAnchor),
+
+            progressView.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+            progressView.heightAnchor.constraint(equalToConstant: 2.0)
+        ])
+    }
+    
+    private func setupEstimatedProgressObserver() {
+        estimatedProgressObserver = wkWebView.observe(\.estimatedProgress, options: [.new]) { [weak self] webView, _ in
+            self?.progressView.progress = Float(webView.estimatedProgress)
+        }
     }
     
     private func load() {
@@ -44,5 +78,55 @@ class DetailViewController: UIViewController {
         }
         let request = URLRequest(url: url)
         wkWebView.load(request)
+    }
+}
+
+// MARK: - WKNavigationDelegate
+extension DetailViewController: WKNavigationDelegate {
+    
+    // 読み込み設定（リクエスト前）
+    func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("読み込み設定（リクエスト前）")
+        guard let url = navigationAction.request.url else { return }
+        print("開くurl: ", url)
+        decisionHandler(.allow)
+    }
+    
+    // 読み込み準備開始
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        if progressView.isHidden {
+            progressView.isHidden = false
+        }
+
+        UIView.animate(withDuration: 0.33, animations: {
+            self.progressView.alpha = 1.0
+        })
+        print("読み込み準備開始")
+    }
+    
+    // 読み込み完了
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        UIView.animate(withDuration: 0.33,
+                       animations: {
+                           self.progressView.alpha = 0.0
+                       },
+                       completion: { isFinished in
+                           self.progressView.isHidden = isFinished
+        })
+        print("読み込み完了")
+    }
+    
+    // WebPageの読み込み開始時にerrorが起きた時に呼ばれる
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError: Error) {
+        print("読み込み失敗検知")
+        self.progressView.isHidden = true
+    }
+    
+    // WebPageの読み込み途中でerrorが起きた時に呼ばれる
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError: Error) {
+        print("読み込み失敗")
+        self.progressView.isHidden = true
     }
 }
