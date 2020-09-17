@@ -14,9 +14,36 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4M3-Fm-4rB">
+                                <rect key="frame" x="0.0" y="120" width="414" height="776"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="検索するテキストを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HiB-a5-9XM">
+                                <rect key="frame" x="24" y="60" width="366" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JGP-RC-L3S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HiB-a5-9XM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="NhD-v3-V1k"/>
+                            <constraint firstItem="4M3-Fm-4rB" firstAttribute="top" secondItem="HiB-a5-9XM" secondAttribute="bottom" constant="20" id="QyH-pD-KWb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4M3-Fm-4rB" secondAttribute="trailing" id="d6f-kV-QOd"/>
+                            <constraint firstItem="HiB-a5-9XM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fJo-XM-J1l"/>
+                            <constraint firstItem="4M3-Fm-4rB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iKh-KT-uOj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HiB-a5-9XM" secondAttribute="trailing" constant="24" id="xw0-7C-zWm"/>
+                            <constraint firstAttribute="bottom" secondItem="4M3-Fm-4rB" secondAttribute="bottom" id="zzJ-a6-iVt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="resultTableView" destination="4M3-Fm-4rB" id="WTH-Tk-rZo"/>
+                        <outlet property="searchTextField" destination="HiB-a5-9XM" id="KSg-jQ-k4y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
