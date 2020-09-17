@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Github-API-Github-APIUITests/Pods-Github-API-Github-APIUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework
+${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework
+${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework

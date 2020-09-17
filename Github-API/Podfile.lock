@@ -1,0 +1,36 @@
+PODS:
+  - DZNEmptyDataSet (1.8.1)
+  - LicensePlist (2.16.0)
+  - Nuke (9.1.2)
+  - R.swift (5.2.2):
+    - R.swift.Library (~> 5.2.0)
+  - R.swift.Library (5.2.0)
+  - SwiftLint (0.40.0)
+
+DEPENDENCIES:
+  - DZNEmptyDataSet
+  - LicensePlist
+  - Nuke (~> 9.0)
+  - R.swift
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - DZNEmptyDataSet
+    - LicensePlist
+    - Nuke
+    - R.swift
+    - R.swift.Library
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  LicensePlist: 26afd3ef32fffcc649a15b31d96fef5eded65497
+  Nuke: dd2e6be6a34c042a7861e190632781d11f253026
+  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
+  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
+  SwiftLint: 4154893c73a4c52d6240195507eb7a3e3c64087e
+
+PODFILE CHECKSUM: 9ccecd959c92dfdc3dd108ae247eaa8dd1be53f5
+
+COCOAPODS: 1.8.4
