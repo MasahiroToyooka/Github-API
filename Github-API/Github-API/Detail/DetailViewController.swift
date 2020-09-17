@@ -142,9 +142,9 @@ extension DetailViewController: WKNavigationDelegate {
         if URLSchemeType(scheme: url.scheme) != nil {
             if app.canOpenURL(url) {
                 app.open(url, options: [:], completionHandler: nil)
-                decisionHandler(.cancel)
-                return
             }
+            decisionHandler(.cancel)
+            return
         }
         decisionHandler(.allow)
     }
