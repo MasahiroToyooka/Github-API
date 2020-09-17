@@ -4,6 +4,9 @@ GitHub APIを使用し情報をtableViewに表示する
 ### デモ
 <img src="https://user-images.githubusercontent.com/38667604/93537390-52e69b00-f986-11ea-9325-3570438d3cb4.gif" width="200">
 
+### Setup
+```pod install```
+
 ### ライブラリ選定理由
 - Nuke - 画像キャッシュライブラリを比較している記事を読み、あんまり差があるわけではなさそうでしたので、使い慣れている方を選びました。
 - DZNEmptyDataSet - 使い慣れているので選びました。
