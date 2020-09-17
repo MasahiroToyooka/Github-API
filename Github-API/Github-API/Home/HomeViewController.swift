@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import DZNEmptyDataSet
 
 protocol HomeViewInterface: class {
     func reloadTableView()
@@ -25,6 +26,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Search User"
+        
         presenter = HomePresenter(self)
         initializeTableView()
         initializeSearchTextField()
@@ -33,6 +36,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     private func initializeTableView() {
         resultTableView.delegate = self
         resultTableView.dataSource = self
+        resultTableView.emptyDataSetSource = self
         resultTableView.register(R.nib.searchResultCell)
     }
     
@@ -50,7 +54,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 }
         }
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+        return true
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -74,6 +82,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
 extension HomeViewController: HomeViewInterface {
     
     func reloadTableView() {
@@ -84,5 +93,19 @@ extension HomeViewController: HomeViewInterface {
                 self.resultTableView.isUserInteractionEnabled = true
             }
         }
+    }
+}
+
+
+// MARK: - Empty View
+extension HomeViewController: DZNEmptyDataSetSource {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "一致する検索結果は\nありません".attribute().font(.systemFont(ofSize: 25)).textColor(.lightGray)
+        return str
+    }
+    
+    // empty viewの表示場所の指定
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return -100
     }
 }
