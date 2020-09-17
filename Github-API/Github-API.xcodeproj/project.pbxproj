@@ -23,6 +23,7 @@
 		C1DDFE6B2513A27200E44DA2 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE6A2513A27200E44DA2 /* HomeModel.swift */; };
 		C1DDFE6E2513A49900E44DA2 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE6C2513A49900E44DA2 /* SearchResultCell.swift */; };
 		C1DDFE6F2513A49900E44DA2 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DDFE6D2513A49900E44DA2 /* SearchResultCell.xib */; };
+		C1DDFE712513A68A00E44DA2 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDFE702513A68A00E44DA2 /* UserItem.swift */; };
 		ECBF5B9361B36E28A86A336B /* Pods_Github_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1698387A8F260E65B3196965 /* Pods_Github_API.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		C1DDFE6A2513A27200E44DA2 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		C1DDFE6C2513A49900E44DA2 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C1DDFE6D2513A49900E44DA2 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		C1DDFE702513A68A00E44DA2 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		FC58CF09A327F9559E0EE373 /* Pods-Github-API.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github-API.debug.xcconfig"; path = "Target Support Files/Pods-Github-API/Pods-Github-API.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 				C1DDFE6A2513A27200E44DA2 /* HomeModel.swift */,
 				C1DDFE6C2513A49900E44DA2 /* SearchResultCell.swift */,
 				C1DDFE6D2513A49900E44DA2 /* SearchResultCell.xib */,
+				C1DDFE702513A68A00E44DA2 /* UserItem.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				C14362BA2513943200A4B358 /* SceneDelegate.swift in Sources */,
 				C1DDFE692513A23E00E44DA2 /* HomePresenter.swift in Sources */,
 				C1294D912513971200BEBDE0 /* R.generated.swift in Sources */,
+				C1DDFE712513A68A00E44DA2 /* UserItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
