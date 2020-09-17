@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Github_APIUITests: XCTestCase {
+final class Github_APIUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,13 +23,37 @@ class Github_APIUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    //　検索して詳細ページに遷移できるかどうか
+    func testTransitionDetail() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let homePage = HomePage(app: app, timeout: 3.0)
+        let searchText = "Masa"
+        
+        _ = homePage
+            .inputSearchText(searchText: searchText)
+            .tapFirstCell()
+        
+    }
+    
+    // 検索結果が意図した結果になっているかどうか
+    func testAPIRespose() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let homePage = HomePage(app: app, timeout: 3.0)
+        let searchText = "MasahiroToyooka"
+        let correctText = "MasahiroToyooka"
+                
+        let resultLabel = homePage
+            .inputSearchText(searchText: searchText)
+            .swipeUpTableViewFirstCell()
+            .swipeDownTableViewFirstCell()
+            .resultTableViewFirstCell_LoginLabelText()
+        
+        XCTAssertEqual(resultLabel, correctText)
+        
     }
 
     func testLaunchPerformance() throws {

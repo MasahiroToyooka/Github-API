@@ -21,6 +21,7 @@
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="検索するテキストを入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HiB-a5-9XM">
                                 <rect key="frame" x="24" y="104" width="366" height="40"/>
+                                <accessibility key="accessibilityConfiguration" identifier="home_search_textfield"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JGP-RC-L3S"/>
                                 </constraints>
@@ -29,6 +30,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="home"/>
                         <constraints>
                             <constraint firstItem="HiB-a5-9XM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="NhD-v3-V1k"/>
                             <constraint firstItem="4M3-Fm-4rB" firstAttribute="top" secondItem="HiB-a5-9XM" secondAttribute="bottom" constant="20" id="QyH-pD-KWb"/>
@@ -115,6 +117,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="detail"/>
                         <constraints>
                             <constraint firstItem="ygH-m1-Mar" firstAttribute="top" secondItem="Cyz-eh-k6C" secondAttribute="top" id="1ZD-uz-uzQ"/>
                             <constraint firstItem="rRC-Px-JXZ" firstAttribute="bottom" secondItem="Cyz-eh-k6C" secondAttribute="bottom" id="8HY-a1-Ps1"/>
