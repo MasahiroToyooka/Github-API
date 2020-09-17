@@ -46,6 +46,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setupWebView() {
+        wkWebView.uiDelegate = self
         wkWebView.navigationDelegate = self
         wkWebView.allowsBackForwardNavigationGestures = true
     }
@@ -74,10 +75,16 @@ class DetailViewController: UIViewController {
     
     private func load() {
         guard let urlString = user?.htmlUrl, let url = URL(string: urlString) else {
+            showFailMessage()
             return
         }
         let request = URLRequest(url: url)
         wkWebView.load(request)
+    }
+    
+    private func showFailMessage() {
+        let html = "<html><head><title>エラー</title><meta charset='UTF-8'></head><body><h1>Webページを表示できません</h1></body></html>"
+        wkWebView.loadHTMLString(html, baseURL: nil)
     }
 }
 
@@ -121,12 +128,34 @@ extension DetailViewController: WKNavigationDelegate {
     // WebPageの読み込み開始時にerrorが起きた時に呼ばれる
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError: Error) {
         print("読み込み失敗検知")
+        // ユーザーキャンセルによるエラー無視する
+        if ((withError as NSError)).code != NSURLErrorCancelled {
+            showFailMessage()
+        }
         self.progressView.isHidden = true
     }
     
     // WebPageの読み込み途中でerrorが起きた時に呼ばれる
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError: Error) {
         print("読み込み失敗")
+        // ユーザーキャンセルによるエラー無視する
+        if ((withError as NSError)).code != NSURLErrorCancelled {
+            showFailMessage()
+        }
         self.progressView.isHidden = true
+    }
+}
+
+// MARK: - WKUIDelegate jsとの連携
+extension DetailViewController: WKUIDelegate {
+    
+    // target=_blank対策
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration,
+                 for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+
+        if navigationAction.targetFrame == nil {
+            webView.load(navigationAction.request)
+        }
+        return nil
     }
 }
